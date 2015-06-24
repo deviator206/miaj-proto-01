@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="miaj">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>AppointMent</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="date/css/bootstrap-datetimepicker.min.css">
+<link href="js/bootstrap/css/bootstrap-datetimepicker.css"
+	rel="stylesheet" media="screen">
+
+<!-- Custom CSS -->
+<link href="css/stylish-portfolio.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css">
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style type="text/css">
+.price-avail p {
+	margin: 0
+}
+
+.short-desc {
+	max-width: 50%
+}
+
+#result-thumb {
+	height: auto;
+	width: 90px
+}
+
+#results section {
+	border-bottom: 1px solid #666
+}
+
+.result-part {
+	margin: 10px;
+	overflow: hidden;
+	padding-bottom: 5px
+}
+
+.bg-quirk
+{
+ background-position: 0 0;
+ background-size:100% 100%;
+}
+.dynamicTile .col-sm-2.col-xs-4 {
+	padding: 5px;
+}
+
+.bigicon {
+	font-size: 67px;
+	color: white;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.icontext {
+	color: white;
+	font-size: 27px;
+}
+
+.bigicondark {
+	font-size: 67px;
+	color: black;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.icontextdark {
+	color: black;
+	font-size: 27px;
+}
+
+.dynamicTile .col-sm-4.col-xs-8 {
+	padding: 5px;
+}
+
+#tile1 {
+	background: #7C91C7;
+}
+
+#tile2 {
+	background: #3B579D;
+}
+
+#tile3 {
+	background: #153178;
+}
+
+#tile4 {
+	background: #EACF46;
+}
+
+#tile5 {
+	background: #EACF46;
+}
+
+#tile6 {
+	background: #FFED94;
+}
+
+#tile7 {
+	background: white;
+}
+
+#tile8 {
+	background: #03133C;
+}
+
+#tile9 {
+	background: #EACF46;
+}
+
+#tile10 {
+	background: #EACF46;
+}
+
+.tilecaption {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	margin: 0 !important;
+	text-align: center;
+	color: white;
+	font-family: Segoe UI;
+	font-weight: lighter;
+}
+</style>
+
+<script type="text/javascript" src="js/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript"
+	src="js/bootstrap/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+</head>
+
+<body  ng-controller="SearchPageController" ng-init="init()">
+
+	<!-- 
+	<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i
+		class="fa fa-bars"></i></a>
+		
+	<nav id="sidebar-wrapper">
+		<ul class="sidebar-nav">
+			<a id="menu-close" href="#"
+				class="btn btn-light btn-lg pull-right toggle"><i
+				class="fa fa-times"></i></a>
+			<li class="sidebar-brand"><a href="#top" onclick=$("#menu-close").click(); >Start
+					Bootstrap</a></li>
+			<li><a href="#top" onclick=$("#menu-close").click(); >Home</a></li>
+			<li><a href="#search" onclick=$("#menu-close").click(); >Search</a>
+			</li>
+			<li><a href="#services" onclick=$("#menu-close").click(); >Visit
+					Profile</a></li>
+			<li><a href="#bookingConfirmation" onclick=$("#menu-close").click(); >Booking
+					Confirmation</a></li>
+
+		</ul>
+	</nav>
+ -->
+	<!-- Header -->
+	<header id="top" class="header">
+		<div class="text-vertical-center">
+			<span class="fa fa-phone bigicon"></span>
+										
+			<h1>One Stop For All Apps</h1>
+			<br>
+
+			<div class="container dynamicTile">
+				<div class="row">
+					<div class="col-sm-4 col-xs-8">
+						<div id="tile10" class="tile" style="height: 115px;">
+
+							<div class="carousel slide" data-ride="carousel"
+								style="height: 115px;">
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner">
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-phone bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-phone bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center active" style="height: 115px;">
+										<div>
+											<span class="fa fa-phone bigicon"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="col-sm-2 col-xs-4">
+						<div id="tile9" class="tile" style="height: 115px;">
+							<div class="carousel slide" data-ride="carousel"
+								style="height: 115px;">
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner">
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-book bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-book bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center active" style="height: 115px;">
+										<div>
+											<span class="fa fa-book bigicon"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-sm-4 col-xs-8">
+						<div id="tile10" class="tile" style="height: 115px;">
+
+							<div class="carousel slide" data-ride="carousel"
+								style="height: 115px;">
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner">
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-phone bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-phone bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center active" style="height: 115px;">
+										<div>
+											<span class="fa fa-phone bigicon"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+
+				<div class="row ">
+					<div class="col-sm-2 col-xs-4">
+						<div id="tile1" class="tile" style="height: 115px;">
+							<div class="carousel slide" data-ride="carousel"
+								style="height: 115px;">
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner">
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-bank bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-bank bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center active" style="height: 115px;">
+										<div>
+											<span class="fa fa-bank bigicon"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-sm-2 col-xs-4">
+						<div id="tile2" class="tile" style="height: 115px;">
+
+							<div class="carousel slide" data-ride="carousel"
+								style="height: 115px;">
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner">
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-lock bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-unlock bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center active" style="height: 115px;">
+										<div>
+											<span class="fa fa-unlock bigicon"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-sm-2 col-xs-4">
+						<div id="tile3" class="tile" style="height: 115px;">
+
+							<div class="carousel slide" data-ride="carousel"
+								style="height: 115px;">
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner">
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-star bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center active" style="height: 115px;">
+										<div>
+											<span class="fa fa-star bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-star bigicon"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-2 col-xs-4">
+						<div id="tile4" class="tile" style="height: 115px;">
+
+							<div class="carousel slide" data-ride="carousel"
+								style="height: 115px;">
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner">
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-cab bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-cab bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center active" style="height: 115px;">
+										<div>
+											<span class="fa fa-cab bigicon"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="col-sm-2 col-xs-4">
+						<div id="tile5" class="tile" style="height: 115px;">
+
+							<div class="carousel slide" data-ride="carousel"
+								style="height: 115px;">
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner">
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-language bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center active" style="height: 115px;">
+										<div>
+											<span class="fa fa-language bigicon"></span>
+										</div>
+									</div>
+									<div class="item text-center" style="height: 115px;">
+										<div>
+											<span class="fa fa-language bigicon"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<a  class="btn btn-dark btn-lg" ng-click="findOutMoreClicked()">Find Out More</a>
+		</div>
+	</header>
+
+	<!-- About -->
+	<section id="search" class="about" >
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<form class="form-inline">
+						<div class="form-group">
+							<label for="inputEmail">Search</label> <input
+								class="form-control" ng-model="searchText"
+								placeholder="Search Keywords">
+						</div>
+
+					</form>
+
+
+					<div id="results" class="results-on" style="min-height: 300px;">
+						<section
+							ng-repeat="searchModel in searchModelList | filter:searchText"
+							class="result-part">
+							<div>
+								<p>keywords :{{searchModel.keywords}}</p>
+								<img id="result-thumb" class="pull-left"
+									ng-src="{{searchModel.imgUrl}}">
+								<p class="short-desc pull-left"
+									ng-bind="searchModel.description"></p>
+							</div>
+							<div class="price-avail ">
+								<p class="avail" ng-bind="searchModel.userReview"></p>
+								<a ng-click="navigateToProfilePage(searchModel)" class="btn btn-default"> Visit Store
+								</a>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container -->
+	</section>
+
+	<!-- Services -->
+	<!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+	<section id="services" class="services bg-primary">
+		<div class="container" style="min-height: 200px;">
+			<div class="row text-center bg-quirk" id="profilePicHolder">
+				<div class="col-lg-10 col-lg-offset-1">
+					<div><h2 class= "col-lg-10" ng-bind="selectedModel.storeName"></h2></div>
+					<hr class="small">
+					<div class="row">
+						<div class="col-md-3 col-sm-6"
+							ng-repeat="selectedSingleModel in selectedModel.serviceDetails">
+							<div class="service-item">
+								<span class="fa-stack fa-4x"> <i
+									class="fa fa-circle fa-stack-2x"></i> <i
+									class="fa fa-cloud fa-stack-1x text-primary"></i>
+								</span>
+								<h4>
+									<strong ng-bind="selectedSingleModel.serviceName"></strong>
+								</h4>
+								<p ng-bind="selectedSingleModel.serviceDescription"></p>
+								<buttton class="btn btn-dark btn-lg" ng-click="bookTheService(selectedSingleModel)">Book	Now</buttton>
+
+							</div>
+						</div>
+
+					</div>
+					<!-- /.row (nested) -->
+				</div>
+				<!-- /.col-lg-10 -->
+			</div>
+			<!-- /.row -->
+
+			<!-- /.container -->
+	</section>
+
+
+	<!-- Portfolio -->
+	<section id="bookingConfirmation" class="portfolio"
+		>
+		<div class="container">
+		<div class="container">
+		
+					<div class="col-lg-10 col-lg-offset-1 ">
+						<table class="table table-bordered">
+							<tr>
+								<td>{{selectedModel.storeDetails.storeName}}</td>
+								
+							</tr>
+							<tr>
+							<td>Service :{{selectedServiceName}}</td>
+							</tr>
+							<tr>
+							<td>Service  Description :{{selectedServiceDescription}}</td>
+							</tr>
+		
+						</table>
+					</div>
+					<!-- /.col-lg-10 -->
+				</div>
+		
+			<div class="container">
+				<label for="dtp_input1" class="col-md-2 lead">Booking
+					Timings</label>
+				<div class="input-group date form_datetime col-md-3"
+					data-date="1979-09-16T05:25:07Z"
+					data-date-format="dd MM yyyy - HH:ii p"
+					data-link-field="dtp_input1">
+					<input class="form-control" size="16" type="text" value="" readonly>
+					<span class="input-group-addon"><span
+						class="glyphicon glyphicon-remove"></span></span> <span
+						class="input-group-addon"><span
+						class="glyphicon glyphicon-th"></span></span>
+				</div>
+				<input type="hidden" id="dtp_input1" value="" /><br />
+				<button  class="btn btn-dark btn-lg" ng-click="confirmationMessage()" ng-show="!confirmationMessageIsShown">Confirm Booking</button>
+				
+			</div>
+
+			<script type="text/javascript">
+  $(function() {
+	  
+	  
+	  $('.form_datetime').datetimepicker({
+	        //language:  'fr',
+	        weekStart: 1,
+	        todayBtn:  1,
+			autoclose: 1,
+			todayHighlight: 1,
+			startView: 2,
+			forceParse: 0,
+	        showMeridian: 1
+	    });
+	  
+	   
+  });
+</script>
+		</div>
+
+
+
+
+		<div id= "confirmationPopUp" class="row">
+			<div class="container">
+				<div class="lead">Booking Confirmation</div>
+				<table class="table table-bordered">
+					<tr>
+						<th>Service</th>
+						<th>Time</th>
+					</tr>
+					<tr>
+						<td>{{selectedModel.storeName}}</td>
+						<td>Today 12:20pm</td>
+					</tr>
+
+				</table>
+
+				<div class="lead">Contact Details</div>
+				<table class="table table-bordered">
+
+					<tr>
+						<td>Name : Mr. P K Mehta</td>
+					</tr>
+					<tr>
+						<td>Address : Viman Nagar, Pune , Near Airport</td>
+					</tr>
+					<tr>
+						<td>Contact : 987654321</td>
+					</tr>
+					<tr>
+						<td>Email : abc@cakh.com</td>
+					</tr>
+
+					<tr>
+					
+					
+					</tr>	
+				</table>
+				<button  class="btn btn-dark btn-lg" ng-click="clickOnHomeBtn()" ng-show="confirmationMessageIsShown">Home </button>
+			</div>
+			
+			
+			<!-- /.col-lg-10 -->
+		</div>
+		<!-- /.row -->
+		</div>
+		<!-- /.container -->
+	</section>
+
+
+	<!-- Custom Theme JavaScript -->
+	<script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    </script>
+
+
+
+	<script>
+	
+	
+
+var searchableData = [{
+                    	  "keywords":"saloon1 ,second",
+                    	  "imgUrl":"img/hotel-icon-hair-salon-md.png",
+                    	  "description":"saloon1   scing elit. Vivamus augue metus, auctor vitae condimentum non, porttitor quis aug",
+                    	  "userReview":"User Rating 3/5",
+                    	  "storeDetails":{
+                    		  "profileImage":"img/portfolio-1.jpg",
+                    		  "storeName":"ABC medicals",
+                    		  "serviceDetails":[
+                    		                    {
+                    		                    	"serviceName":"spa1",
+                    		                    	"serviceDescription":"spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa "
+                    		                    },
+                    		                    {
+                    		                    	"serviceName":"spa2",
+                    		                    	"serviceDescription":"spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2"
+                    		                    },
+                    		                    {
+                    		                    	"serviceName":"spa3",
+                    		                    	"serviceDescription":"spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 "
+                    		                    },
+                    		                    {
+                    		                    	"serviceName":"spa4",
+                    		                    	"serviceDescription":"spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4"
+                    		                    }
+                    		                    ]
+                    	 }
+                    	  
+                      },
+                      {
+                    	  "keywords":"saloon11",
+                    	  "imgUrl":"img/hotel-icon-hair-salon-md.png",
+                    	  "description":"saloon11  ng elit. Vivamus augue metus, auctor vitae condimentum non, porttitor quis aug",
+                    	  "userReview":"User Rating 3/5",
+                    	  
+                    	  "storeDetails":{
+                    		  "profileImage":"img/portfolio-4.jpg",
+                    			  "storeName":"XYV Saloon",
+                    		  "serviceDetails":[
+                    		                    {
+                    		                    	"serviceName":"spa1",
+                    		                    	"serviceDescription":"spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa "
+                    		                    },
+                    		                    {
+                    		                    	"serviceName":"spa2",
+                    		                    	"serviceDescription":"spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2"
+                    		                    },
+                    		                    {
+                    		                    	"serviceName":"spa3",
+                    		                    	"serviceDescription":"spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 "
+                    		                    },
+                    		                    {
+                    		                    	"serviceName":"spa4",
+                    		                    	"serviceDescription":"spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4"
+                    		                    }
+                    		                    ]
+                    	 }
+                      },
+                      {
+                    	  "keywords":"saloon23",
+                    	  "imgUrl":"img/hotel-icon-hair-salon-md.png",
+                    	  "description":"saloon23 dipiscing elit. Vivamus augue metus, auctor vitae condimentum non, porttitor quis aug",
+                    	  "userReview":"User Rating 3/5",
+                    	 
+                    	  "storeDetails":{
+                    		  "profileImage":"img/callout.jpg",
+                    			  "storeName":"hoga kuch bhi",
+                    		  "serviceDetails":[
+                    		                    {
+                    		                    	"serviceName":"spa1",
+                    		                    	"serviceDescription":"spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa "
+                    		                    },
+                    		                    {
+                    		                    	"serviceName":"spa2",
+                    		                    	"serviceDescription":"spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2"
+                    		                    },
+                    		                    {
+                    		                    	"serviceName":"spa3",
+                    		                    	"serviceDescription":"spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 "
+                    		                    },
+                    		                    {
+                    		                    	"serviceName":"spa4",
+                    		                    	"serviceDescription":"spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4"
+                    		                    }
+                    		                    ]
+                    	 }
+                      },
+                      {
+                    	  "keywords":"saloon3",
+                    	  "imgUrl":"img/hotel-icon-hair-salon-md.png",
+                    	  "description":"saloon3 scing elit. Vivamus augue metus, auctor vitae condimentum non, porttitor quis aug",
+                    	  "userReview":"User Rating 3/5",
+                    	                 	  "storeDetails":{
+                    	                 		  
+                    		  "profileImage":"img/1.png",
+                    			  "storeName":"testing name ...",
+                    		  "serviceDetails":[
+                    		                    {
+                    		                    	"serviceName":"spa1",
+                    		                    	"serviceDescription":"spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa spa "
+                    		                    },
+                    		                    {
+                    		                    	"serviceName":"spa2",
+                    		                    	"serviceDescription":"spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2 spa2"
+                    		                    },
+                    		                    {
+                    		                    	"serviceName":"spa3",
+                    		                    	"serviceDescription":"spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 spa3 "
+                    		                    },
+                    		                    {
+                    		                    	"serviceName":"spa4",
+                    		                    	"serviceDescription":"spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4 spa4"
+                    		                    }
+                    		                    ]
+                    	 }
+                      }
+                      ];
+                      
+                      
+			var miaj = angular.module("miaj",[]);
+			miaj.controller("SearchPageController",function($scope)
+					{
+						$scope.selectedModel = {};
+						$scope.confirmationMessageIsShown = false;
+						$scope.appState = 0;
+						$scope.init = function()
+						{
+							$scope.setVisibility();	
+						};
+						
+						$scope.setVisibility= function()
+						{
+							//$scope.appState = 0,1,2,3
+							var arrT= ["top","search","services","bookingConfirmation"];
+							for(var i=1;i<arrT.length;i++)
+								{
+									$("#"+arrT[i]).css("display","none");
+								}
+							
+							if($scope.appState !== 0)
+								{
+									$("#"+arrT[0]).css("display","none");
+									$("#"+arrT[$scope.appState]).css("display","block");
+								}
+								
+						};
+						
+						$scope.searchModelList = searchableData;
+						$scope.navigateToProfilePage = function(selectedModelTemp)
+						{
+							$("#profilePicHolder").css("background-image","url('"+selectedModelTemp.storeDetails.profileImage+"')")
+							$scope.selectedModel = 	selectedModelTemp.storeDetails;
+							$scope.appState = 2;
+							$scope.setVisibility();
+							$("#confirmationPopUp").css("visibility","hidden");
+							$scope.confirmationMessageIsShown = false;
+						}
+						$scope.confirmationMessage = function()
+						{
+							$scope.confirmationMessageIsShown=  true;
+							
+							$("#confirmationPopUp").css("visibility","visible");
+						}
+						$scope.bookTheService=function(selectedSingleModel)
+						{
+							$scope.confirmationMessageIsShown = false;
+							//storeDetails.storeName
+							$scope.selectedServiceName = selectedSingleModel.serviceName;
+							$scope.selectedServiceDescription = selectedSingleModel.serviceDescription;
+							
+							$scope.appState = 3;
+							$scope.setVisibility();
+							
+							$("#confirmationPopUp").css("visibility","visibile");
+						};
+						
+						$scope.findOutMoreClicked = function()
+						{
+							$scope.appState = 1;
+							$scope.setVisibility();
+							$scope.confirmationMessageIsShown = false;
+							$("#confirmationPopUp").css("visibility","hidden");
+						}
+						
+						$scope.clickOnHomeBtn = function()
+						{
+							var arrT= ["top","search","services","bookingConfirmation"];
+							$("#"+arrT[0]).css("display","table");
+							$scope.appState = 0;
+							$scope.setVisibility();
+								
+						}
+					
+					});
+
+</script>
+
+</body>
+
+</html>
